@@ -1,0 +1,264 @@
+body {
+  background: #1b1b1b;
+  padding:0;
+  margin: 0;
+}
+.hero{ 
+      display: flex;
+  align-items: center;
+ min-height: 60vh;
+  flex-direction: column;
+  justify-content: space-between; 
+  text-align: center;
+   padding: 5rem 1rem;
+
+}
+
+.tada-text {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fe4e00;
+  animation: tada 1.5s ease-in-out infinite;
+  margin:0px;
+}
+
+/* Animation TADA */
+@keyframes tada {
+  0% {
+    transform: scale(1) rotate(0);
+  }
+  10%, 20% {
+    transform: scale(0.9) rotate(-3deg);
+  }
+  30%, 50%, 70%, 90% {
+    transform: scale(1.1) rotate(3deg);
+  }
+  40%, 60%, 80% {
+    transform: scale(1.1) rotate(-3deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+.para{
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #fff;
+  opacity: 0.85
+    
+}
+.bloc {
+  display: flex;
+  align-items: center;       /* alignement vertical */
+  justify-content: space-between;
+  gap: 20px;
+   padding: 5rem 1rem;
+}
+
+.bloc-text {
+  flex: 1;
+}
+
+.bloc-text h2 {
+  margin-bottom: 0px;
+  color: #fe4e00;
+}
+
+.bloc-text p {
+  line-height: 1.7;
+  color:#fff;
+}
+
+.bloc-image {
+  flex: 1;
+}
+
+.bloc-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+  .bloc {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .bloc-image img {
+    max-width: 100%;
+  }
+}
+
+
+.photo {
+  padding: 3rem 1rem;
+}
+
+.photo-text h2 {
+  font-size: 18px;
+  color: #fe4e00;
+  margin-bottom: 1rem;
+}
+
+.photo-text p {
+  color: #fff;
+  line-height: 1.7;
+}
+
+/* Conteneur de la galerie */
+.photo-img-container {
+  overflow-x: auto;               /* scroll horizontal sur mobile */
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+}
+
+/* Liste d'images */
+.photo-img {
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;              /* horizontal, pas de retour à la ligne */
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Chaque image */
+.photo-img li {
+  flex: 0 0 250px;                /* largeur fixe par image */
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+/* Texte sur l'image */
+.photo-img li span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  color: #fff;
+  background: linear-gradient(to top, rgba(0,0,0,0.65), transparent);
+  font-size: 14px;
+}
+
+/* Images */
+.photo-img li img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Desktop : pas de scroll mais alignement horizontal */
+@media (min-width: 769px) {
+  .photo-img-container {
+    overflow-x: visible;
+  }
+
+  .photo-img li {
+    flex: 0 0 190px;
+    height: 450px;
+  }
+
+  .photo-img li img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.projects h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #fe4e00;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 15px;
+}
+
+.card p {
+  margin: 0 15px 15px;
+  color: #555;
+}
+
+.card a {
+  display: block;
+  margin: 15px;
+  padding: 10px;
+  text-align: center;
+  background: #fe4e00;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.card a:hover {
+  background: #e04d00;
+}
+/* PARTIE FOOTER */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1b1b1b;
+  color: #fff;
+  padding: 30px 40px;
+}
+
+.footer-section {
+  width: 30%;
+  border-left: 2px solid #fe4e00;
+  padding-left: 15px;
+}
+
+.footer-section:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+.footer h3 {
+  margin-bottom: 10px;
+  color: #fe4e00;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+.footer ul li {
+  margin-bottom: 8px;
+}
+
+.footer ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer ul li a:hover {
+  background-color: #fe4e00;
+}
+
