@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Resulats Scolaire</title>
+    <link rel="stylesheet" href="scolaire 1.css">
+</head>
+<body>
+
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">📊 PROJET LIBREOFFICE CALC</div>
+  <h1>Gestion des Résultats Scolaires</h1>
+  <p>Un système complet de gestion des notes, moyennes et bulletins pour le Lycée de Bangui👨‍🎓</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">11</div><div class="stat-label">Classes</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Matières</div></div>
+    <div class="stat"><div class="stat-num">8</div><div class="stat-label">Feuilles</div></div>
+    <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Formules</div></div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section style="background: var(--white);">
+  <div class="container">
+    <div class="section-title">Fonctionnalités</div>
+    <div class="section-heading">Ce que fait ce projet</div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <div class="feature-name">Saisie des notes</div>
+        <div class="feature-desc">DV1, DV2, DV3 et Examen avec calcul automatique du Total et de la Moyenne</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔢</div>
+        <div class="feature-name">Formules automatiques</div>
+        <div class="feature-desc">SOMME(), MOYENNE(), SI() imbriqués et RANG() pour classer les élèves</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎨</div>
+        <div class="feature-name">Mise en forme conditionnelle</div>
+        <div class="feature-desc">Couleurs Rouge/Jaune/Vert selon les moyennes pour visualiser rapidement les résultats</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <div class="feature-name">Recherche élève</div>
+        <div class="feature-desc">RECHERCHEV() pour afficher la fiche complète d'un élève en tapant son nom</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <div class="feature-name">Graphiques</div>
+        <div class="feature-desc">Barres des moyennes colorées selon les mentions pour analyser les résultats</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏅</div>
+        <div class="feature-name">Classement général</div>
+        <div class="feature-desc">INDEX + EQUIV pour afficher le podium de la classe avec médailles 🥇🥈🥉</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📈</div>
+        <div class="feature-name">Bilan général</div>
+        <div class="feature-desc">Moyenne générale des 3 matières par élève avec mention et rang global</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📄</div>
+        <div class="feature-name">Bulletin imprimable</div>
+        <div class="feature-desc">Bulletin automatique par élève avec liste déroulante pour changer d'élève</div>
+      </div>
+  
+  
+      <div class="feature-card">
+        <div class="feature-icon">🏠</div>
+        <div class="feature-name">Page d'accueil</div>
+        <div class="feature-desc">Navigation rapide avec boutons LIEN.HYPERTEXTE vers toutes les feuilles</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SCREENSHOTS -->
+<section>
+  <div class="container">
+    <div class="section-title">Aperçu des feuilles</div>
+    <div class="section-heading">Structure du projet</div>
+
+    <!-- Zone upload -->
+    <div class="upload-section">
+      <div class="upload-icon">🎞️</div>
+      <div class="upload-title"> </div>
+      <img src="Gestion.png" alt="">
+    </div>
+
+    <div id="gallery"></div>
+
+    <!-- Cartes des feuilles -->
+    <div class="screenshots-grid" style="margin-top: 32px;">
+      <div class="screenshot-card">
+        <div class="screenshot-preview" style="background: url('Accueil.png') center/cover no-repeat;"></div>
+
+        <div class="screenshot-info">
+          <div class="screenshot-title"></div>
+          <div class="screenshot-desc">Navigation avec 4 boutons vers toutes les feuilles + guide d'utilisation</div>
+          <div class="screenshot-tags">
+            <span class="tag">LIEN.HYPERTEXTE</span>
+            <span class="tag">Navigation</span>
+          </div>
+        </div>
+      </div>
+      <div class="screenshot-card">
+           <div class="screenshot-preview" style="background: url('saisint.png') center/cover no-repeat;"></div>
+  
+        <div class="screenshot-info">
+          <div class="screenshot-title">Saisie des Notes</div>
+          <div class="screenshot-desc">10 élèves, 4 notes, calcul automatique Total/Moyenne/Mention/Rang</div>
+          <div class="screenshot-tags">
+            <span class="tag">SOMME</span>
+            <span class="tag">SI</span>
+            <span class="tag">RANG</span>
+          </div>
+        </div>
+      </div>
+      <div class="screenshot-card">
+           <div class="screenshot-preview" style="background: url('Recher.png') center/cover no-repeat;"></div>
+  
+        <div class="screenshot-info">
+          <div class="screenshot-title">Recherche Élève</div>
+          <div class="screenshot-desc">Tape un nom → fiche complète avec toutes les notes et résultats</div>
+          <div class="screenshot-tags">
+            <span class="tag">RECHERCHEV</span>
+            <span class="tag">SIERREUR</span>
+          </div>
+        </div>
+      </div>
+      <div class="screenshot-card">
+           <div class="screenshot-preview" style="background: url('Ghraphique.png') center/cover no-repeat;"></div>
+  
+        <div class="screenshot-info">
+          <div class="screenshot-title">Graphiques</div>
+          <div class="screenshot-desc">Barres colorées des moyennes selon les mentions de chaque élève</div>
+          <div class="screenshot-tags">
+            <span class="tag">Graphique barres</span>
+            <span class="tag">Couleurs</span>
+          </div>
+        </div>
+      </div>
+      <div class="screenshot-card">
+           <div class="screenshot-preview" style="background: url('classement.png') center/cover no-repeat;"></div>
+        <div class="screenshot-info">
+          <div class="screenshot-title">Classement</div>
+          <div class="screenshot-desc">Podium de la classe du 1er au 10e avec médailles automatiques</div>
+          <div class="screenshot-tags">
+            <span class="tag">INDEX</span>
+            <span class="tag">EQUIV</span>
+          </div>
+        </div>
+      </div>
+      <div class="screenshot-card">
+           <div class="screenshot-preview" style="background: url('Bulletin.png') center/cover no-repeat;"></div>
+
+        <div class="screenshot-info">
+          <div class="screenshot-title">Bulletin</div>
+          <div class="screenshot-desc">Bulletin imprimable avec liste déroulante pour changer d'élève en 1 clic</div>
+          <div class="screenshot-tags">
+            <span class="tag">Impression</span>
+            <span class="tag">Liste déroulante</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ETAPES -->
+<section style="background: var(--white);">
+  <div class="container">
+    <div class="section-title">Construction</div>
+    <div class="section-heading">Étapes de réalisation</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-step">Étape 1</div>
+        <div class="timeline-title">Structure du tableau</div>
+        <div class="timeline-desc">Création des en-têtes, fusion des cellules, mise en forme du titre et des colonnes</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-step">Étape 2</div>
+        <div class="timeline-title">Formules de calcul</div>
+        <div class="timeline-desc">SOMME() pour le total, formule pondérée pour la moyenne (Examen coeff 2), SI() pour les mentions</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-step">Étape 3</div>
+        <div class="timeline-title">Classement et mise en forme</div>
+        <div class="timeline-desc">RANG() pour le classement, mise en forme conditionnelle Rouge/Jaune/Vert sur les moyennes</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-step">Étape 4</div>
+        <div class="timeline-title">Recherche et Bilan</div>
+        <div class="timeline-desc">RECHERCHEV() pour la fiche élève, Bilan Général pour croiser les 3 matières</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-step">Étape 5</div>
+        <div class="timeline-title">Graphiques et Classement</div>
+        <div class="timeline-desc">Graphique en barres colorées, INDEX+EQUIV pour le podium de la classe</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-step">Étape 6</div>
+        <div class="timeline-title">Bulletin et Navigation</div>
+        <div class="timeline-desc">Bulletin imprimable automatique, page Accueil avec boutons LIEN.HYPERTEXTE</div>
+      </div>
+    </div> 
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- TECH -->
+<section>
+  <div class="container">
+    <div class="section-title">Technologies</div>
+    <div class="section-heading">Outils et formules utilisés</div>
+    <div class="tech-grid">
+      <div class="tech-item">📊 LibreOffice Calc</div>
+      <div class="tech-item">🔢 SOMME()</div>
+      <div class="tech-item">📐 MOYENNE()</div>
+      <div class="tech-item">✅ SI() imbriqués</div>
+      <div class="tech-item">🏆 RANG()</div>
+      <div class="tech-item">🔍 RECHERCHEV()</div>
+      <div class="tech-item">📍 INDEX + EQUIV</div>
+      <div class="tech-item">🛡️ SIERREUR()</div>
+      <div class="tech-item">🎨 Mise en forme conditionnelle</div>
+      <div class="tech-item">✔️ Validation de données</div>
+      <div class="tech-item">🔗 LIEN.HYPERTEXTE()</div>
+      <div class="tech-item">🖨️ Zone d'impression</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Gestion des Résultats Scolaires</strong> — Lycée de Bangui<br>
+  Projet réalisé avec LibreOffice Calc · Année scolaire 2025-2026
+</footer>
+
+<script>
+  const input = document.getElementById('fileInput');
+  const gallery = document.getElementById('gallery');
+
+  const labels = [
+    'Page Accueil', 'Saisie des notes', 'Recherche élève',
+    'Graphiques', 'Classement', 'Bilan Général',
+    'Bulletin', 'Base de données', 'Français', 'Anglais'
+  ];
+
+  input.addEventListener('change', function() {
+    const files = Array.from(this.files);
+    files.forEach((file, i) => {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+        item.innerHTML = `
+          <img src="${e.target.result}" alt="${labels[i] || 'Capture'}">
+          <div class="gallery-caption">${labels[i] || 'Capture ' + (i+1)}</div>
+        `;
+        gallery.appendChild(item);
+      };
+      reader.readAsDataURL(file);
+    });
+  });
+</script>
+
+</body>
+</html>

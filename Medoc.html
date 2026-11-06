@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de stock medicaments</title>
+     <link rel="stylesheet" href="sant.css">
+    
+</head>
+<body>
+
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">📊 PROJET LIBREOFFICE CALC</div>
+  <h1>Gestion de stock de médicaments</h1>
+  <p>Gestion de stock de médicaments est un classeur de suivi de stock pour une pharmacie ou un dépôt.<br>
+     Il enregistre les entrées et sorties, calcule le stock en temps réel, signale les ruptures<br>
+      et les péremptions, et présente le tout dans un tableau de bord. Les montants sont en FCFA.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">15</div><div class="stat-label">Medicaments</div></div>
+    <div class="stat"><div class="stat-num">7</div><div class="stat-label">Catégories</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Fournisseurs</div></div>
+    <div class="stat"><div class="stat-num">40</div><div class="stat-label">Mouvemets</div></div>
+    <div class="stat"><div class="stat-num">2770 unité en stock</div><div class="stat-label">Valeurs 818450Fca</div></div>
+
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section style="background: var(--white);">
+  <div class="container">
+    <div class="section-title">Fonctionnalités</div>
+    <div class="section-heading"> Outil utilisé</div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔢</div>
+        <div class="feature-name">calculs</div>
+        <div class="feature-desc">SOMME, SOMME.SI, SOMME.SI.ENS, NB.SI (Totaux, valeur par catégorie, comptage des alertes)</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔍 </div>
+        <div class="feature-name">Recherche</div>
+        <div class="feature-desc">INDEX + EQUIV(Retrouver un nom, une catégorie ou une valeur à partir d’un ID)</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💡</div>
+        <div class="feature-name">Logique</div>
+        <div class="feature-desc">SI, SIERREUR(	Alertes et gestion des erreurs)</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📆</div>
+        <div class="feature-name">Date</div>
+        <div class="feature-desc">AUJOURDHUI, TEXTE(Jours avant expiration, date de mise à jour automatique)</div>
+      </div>
+     
+      <div class="feature-card">
+        <div class="feature-icon">🏅</div>
+        <div class="feature-name">Classement </div>
+        <div class="feature-desc">GRANDE.VALEUR, LIGNE(Top 5 des médicaments les plus consommés)</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <div class="feature-name">Saisie</div>
+        <div class="feature-desc">Listes déroulantes (validité des données)</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⬜</div>
+        <div class="feature-name">Mise en forme conditionnelle</div>
+        <div class="feature-desc">Rouge, orange et vert selon les alertes</div>
+      </div>
+  
+  
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <div class="feature-name">Ghraphique</div>
+        <div class="feature-desc">(colonnes, secteur)	Stock par médicament, Top 5, répartition par catégorie</div>
+      </div>
+    </div>
+     <div class="feature-card">
+        <div class="feature-icon">📄</div>
+        <div class="feature-name">Présentation</div>
+        <div class="feature-desc">Cellules fusionnées, volets figés, formats de nombre(Cartes d’indicateurs, lisibilité)</div>
+      </div>
+  </div>
+</section>
+
+
+<!-- ETAPES -->
+<section style="background: var(--white);">
+  <div class="container">
+    <div class="section-title">Construction</div>
+    <div class="section-heading">Étapes de réalisation</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-step">Étape 1</div>
+        <div class="timeline-title">Conception</div>
+        <div class="timeline-desc">Découpage en 5 onglets selon le principe données → calculs → affichage Médicaments, Mouvements, Recherche, Tableau de bord.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-step">Étape 2</div>
+        <div class="timeline-title">Onglet « Médicaments>> </div>
+        <div class="timeline-desc">Saisie de la fiche de chaque produit : ID, nom, catégorie, fournisseur, prix, stock initial, seuil minimum, date d’expiration.
+Calcul des jours avant expiration (=L2-AUJOURDHUI()) et de l’alerte d’expiration (EXPIRÉ, EXPIRATION PROCHE à 30 jours ou moins, OK)</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-step">Étape 3</div>
+        <div class="timeline-title">Onglet « Mouvements » (le journal)</div>
+        <div class="timeline-desc">RANG() pour le classement, mise en forme conditionnelle Rouge/Jaune/Vert sur les moyennes</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-step">Étape 4</div>
+        <div class="timeline-title">Calculs automatiques</div>
+        <div class="timeline-desc">Entrées et sorties totales avec SOMME.SI.ENS (deux critères : ID et type).
+Stock actuel = stock initial + entrées − sorties.
+Alerte stock (STOCK FAIBLE si stock ≤ seuil), valeur du stock (stock × prix) et clé de tri pour le classement.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-step">Étape 5</div>
+        <div class="timeline-title">Mise en forme conditionnelle</div>
+        <div class="timeline-desc">Couleurs automatiques sur les colonnes d’alerte : rouge pour STOCK FAIBLE ou EXPIRÉ, orange pour EXPIRATION PROCHE, vert pour OK.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-step">Étape 6</div>
+        <div class="timeline-title">Onglet « Recherche »</div>
+        <div class="timeline-desc">Fiche complète d’un médicament choisi dans une liste déroulante, construite avec INDEX + EQUIV.</div>
+      </div>
+    </div> 
+     <div class="timeline-item">
+        <div class="timeline-step">Étape 7</div>
+        <div class="timeline-title">Onglet « Tableau de bord »</div>
+        <div class="timeline-desc">4 cartes : quantité totale, valeur totale, alertes stock faible, médicaments expirés ou proches.
+Top 5 des médicaments les plus consommés.
+Valeur du stock par catégorie.
+Tableau des alertes actives sur les 15 produits.
+3 graphiques : stock par médicament, Top 5, répartition par catégorie.</div>
+      </div>
+    </div> 
+    <div class="timeline-item">
+       <div class="timeline-step">Enfin</div>
+        <div class="timeline-title">Tests et vérification</div>
+        <div class="timeline-desc">Contrôle des totaux (818 450 FCFA retrouvés par deux chemins différents) et ajout d’un mouvement de test pour vérifier la mise à jour automatique.</div>
+      </div>
+  </div>
+</section>
+
+
+<!-- GALERIE PHOTOS -->
+<div class="media-section">
+
+    <h2>Galerie photos</h2>
+    <p class="gallery-description">
+        Capture d'ecran.
+    </p>
+
+    <div class="gallery">
+
+        <div class="photo-card">
+            <img src="tabb.png" alt="Photo 1">
+            <h3>Tableau de bord</h3>
+        </div>
+
+        <div class="photo-card">
+            <img src="listeme.png" alt="Photo 2">
+            <h3>Liste des médicaments</h3>
+        </div>
+
+        <div class="photo-card">
+            <img src="Mouv.png" alt="Photo 3">
+            <h3>Mouvements</h3>
+        </div>
+
+        <div class="photo-card">
+            <img src="Rechemo.png" alt="Photo 4">
+            <h3>Recherche médicament</h3>
+        </div>
+
+      
+</div>
+
+
+
+<hr class="divider">
+
+  <div class="container">
+        <div class="card">
+            <h1>Téléchargement de document</h1>
+
+            <p>
+                Cliquez sur le bouton ci-dessous
+                pour télécharger notre document.
+            </p>
+
+            <div class="document">
+                <span class="icon">📄</span>
+                <div>
+                    <h3>Mon document</h3>
+                    <small>Format LibreOffice (.odt)</small>
+                </div>
+            </div>
+
+            <a href="gestion de medicaments Sn.ods" download class="btn">
+                Télécharger le document
+            </a>
+        </div>
+    </div>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Gestion  de stock de médicaments</strong> — Fournisseurs-SN (DAKAR)<br>
+  Projet réalisé avec LibreOffice Calc ·
+</footer>
+
+<script>
+  const input = document.getElementById('fileInput');
+  const gallery = document.getElementById('gallery');
+
+  const labels = [
+    'Page Accueil', 'Saisie des notes', 'Recherche élève',
+    'Graphiques', 'Classement', 'Bilan Général',
+    'Bulletin', 'Base de données', 'Français', 'Anglais'
+  ];
+
+  input.addEventListener('change', function() {
+    const files = Array.from(this.files);
+    files.forEach((file, i) => {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+        item.innerHTML = `
+          <img src="${e.target.result}" alt="${labels[i] || 'Capture'}">
+          <div class="gallery-caption">${labels[i] || 'Capture ' + (i+1)}</div>
+        `;
+        gallery.appendChild(item);
+      };
+      reader.readAsDataURL(file);
+    });
+  });
+</script>
+
+</body>
+</html>
