@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contactez-moi</title>
+<style>
+  :root {
+    --fond: #1b1b1b;
+    --carte: #ffffff;
+    --encre: #1b2733;
+    --discret: #5d6b78;
+    --ligne: #c9d3dc;
+    --accent: #fe4e00;
+    --accent-fonce: #174a6d;
+    --erreur: #b3261e;
+    --succes: #1d7a46;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: var(--fond);
+    color: var(--encre);
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    line-height: 1.5;
+  }
+  .carte {
+    width: 100%;
+    max-width: 520px;
+    background: var(--carte);
+    border-radius: 14px;
+    padding: 36px 32px;
+    box-shadow: 0 10px 30px rgba(27, 39, 51, .08);
+  }
+  h1 { margin: 0 0 6px; font-size: 1.7rem; }
+  .intro { margin: 0 0 26px; color: var(--discret); }
+  .champ { margin-bottom: 18px; }
+  label { display: block; margin-bottom: 6px; font-weight: 600; font-size: .95rem; }
+  input, textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--ligne);
+    border-radius: 8px;
+    font: inherit;
+    color: inherit;
+    background:  #ffffff;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  textarea { min-height: 140px; resize: vertical; }
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px  rgba(0,0,0,0.2);
+  }
+  .invalide { border-color: var(--erreur); }
+  .erreur { display: none; margin-top: 5px; font-size: .85rem; color: var(--erreur); }
+  .invalide + .erreur { display: block; }
+  button {
+    width: 100%;
+    padding: 13px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--accent);
+    color:  #fe4e00;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  button:hover { background: var(--accent-fonce); }
+  button:focus-visible { outline: 3px solid #fe4e00; outline-offset: 2px; }
+  button:disabled { opacity: .65; cursor: wait; }
+  #statut {
+    margin-top: 16px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: .95rem;
+    display: none;
+  }
+  #statut.ok { display: block; background: #e6f4ec; color: var(--succes); }
+  #statut.ko { display: block; background: #fbe9e7; color: var(--erreur); }
+  .piege { position: absolute; left: -9999px; }
+  .whatsapp {
+  display: block;
+  margin-top: 14px;
+  padding: 13px;
+  border-radius: 8px;
+  background: #25d366;
+  color: #0b2e1a;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: background .15s;
+}
+.whatsapp:hover { background: #1ebe5b; }
+.whatsapp:focus-visible { outline: 3px solid rgba(37, 211, 102, .5); outline-offset: 2px; }
+  @media (max-width: 480px) { .carte { padding: 28px 20px; } }
+</style>
+</head>
+<body>
+
+<main class="carte">
+  <h1>Écrivez-moi</h1>
+  <p class="intro">Décrivez votre besoin. Vous recevrez une réponse par e-mail.</p>
+
+  <form id="formulaire" novalidate>
+    <a class="whatsapp" href="https://wa.me/2217959681?text=Bonjour%2C%20je%20vous%20contacte%20depuis%20votre%20site."
+   target="_blank" rel="noopener">
+  Ou écrivez-moi sur WhatsApp
+</a>
+    <!-- 1) Mettez ici VOTRE clé Web3Forms (voir les instructions) -->
+    <input type="hidden" name="access_key" value="75564c39-8aa9-4847-a706-25892a658103">
+    <input type="hidden" name="subject" value="Nouveau message depuis mon site">
+    <input type="hidden" name="from_name" value="Formulaire de contact">
+    <!-- Champ piège anti-spam : doit rester vide -->
+    <input type="checkbox" name="botcheck" class="piege" tabindex="-1" autocomplete="off">
+
+    <div class="champ">
+      <label for="nom">Nom</label>
+      <input type="text" id="nom" name="name" autocomplete="name" required>
+      <span class="erreur">Indiquez votre nom.</span>
+    </div>
+
+    <div class="champ">
+      <label for="email">Adresse e-mail</label>
+      <input type="email" id="email" name="email" autocomplete="email" required>
+      <span class="erreur">Indiquez une adresse e-mail valide.</span>
+    </div>
+
+    <div class="champ">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required minlength="10"></textarea>
+      <span class="erreur">Écrivez un message d’au moins 10 caractères.</span>
+    </div>
+
+    <button type="submit" id="envoyer">Envoyer le message</button>
+    <div id="statut" role="status" aria-live="polite"></div>
+  </form>
+</main>
+
+<script>
+  const form = document.getElementById('formulaire');
+  const bouton = document.getElementById('envoyer');
+  const statut = document.getElementById('statut');
+
+  function valider() {
+    let ok = true;
+    form.querySelectorAll('input[required], textarea[required]').forEach(champ => {
+      const valide = champ.checkValidity() && champ.value.trim() !== '';
+      champ.classList.toggle('invalide', !valide);
+      if (!valide) ok = false;
+    });
+    return ok;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    statut.className = '';
+    if (!valider()) return;
+
+    bouton.disabled = true;
+    bouton.textContent = 'Envoi en cours…';
+
+    try {
+      const reponse = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      const data = await reponse.json();
+
+      if (reponse.ok && data.success) {
+        statut.textContent = 'Message envoyé. Merci, je vous réponds rapidement.';
+        statut.className = 'ok';
+        form.reset();
+      } else {
+        throw new Error(data.message || 'Erreur inconnue');
+      }
+    } catch (err) {
+      statut.textContent = 'Le message n’a pas pu être envoyé. Réessayez dans un instant.';
+      statut.className = 'ko';
+    } finally {
+      bouton.disabled = false;
+      bouton.textContent = 'Envoyer le message';
+    }
+  });
+
+  // Retire l'erreur dès que la personne corrige le champ
+  form.addEventListener('input', (e) => {
+    if (e.target.classList.contains('invalide') && e.target.checkValidity()) {
+      e.target.classList.remove('invalide');
+    }
+  });
+</script>
+</body>
+</html>
